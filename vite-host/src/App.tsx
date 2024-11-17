@@ -6,6 +6,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import type { App } from "vite-mf/dist/types/App";
 
 const ViteMF: App = lazy(() => import("vite-mf/vite-mf"));
+const WebpackMF: App = lazy(() => import("webpack_mf/app"));
 
 function App() {
   console.log(window);
@@ -24,6 +25,7 @@ function App() {
         <ErrorBoundary fallback={<div>Что-то поломалось</div>}>
           <Suspense fallback={<div>Загрузка...</div>}>
             <ViteMF />
+            <WebpackMF />
           </Suspense>
         </ErrorBoundary>
       </div>

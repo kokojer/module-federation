@@ -2,7 +2,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 
-function App({ number: number = 10 }) {
+function App() {
   return (
     <div className="card-vite-mf">
       <div>
@@ -13,7 +13,7 @@ function App({ number: number = 10 }) {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite-mf {number}</h1>
+      <h1>Vite-mf</h1>
     </div>
   );
 }
