@@ -21,7 +21,7 @@ export default defineConfig({
         react: {
           singleton: true,
         },
-        "react/": {
+        "react-dom": {
           singleton: true,
         },
       },

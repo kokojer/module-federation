@@ -4,7 +4,6 @@ const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 const {
   ModuleFederationPlugin,
 } = require("@module-federation/enhanced/webpack");
-
 module.exports = {
   entry: "./src/index",
   mode: "development",
@@ -16,12 +15,16 @@ module.exports = {
     headers: {
       "Access-Control-Allow-Origin": "*",
     },
-    port: 3003,
+    port: 3002,
   },
   output: {
     publicPath: "auto",
     filename: "[name].js",
     path: path.resolve(__dirname, "dist"),
+    library: {
+      name: "webpack_mf_host",
+      type: "var",
+    },
   },
   resolve: {
     extensions: [".ts", ".tsx", ".js"],
@@ -41,18 +44,22 @@ module.exports = {
   },
   plugins: [
     new ModuleFederationPlugin({
-      name: "webpack_mf",
+      name: "webpack_mf_host",
       filename: "remoteEntry.js",
       exposes: {
         "./app": "./src/App.tsx",
-        "./button2": "./src/Button2.tsx",
       },
-      runtime: false,
+      remotes: {
+        webpack_mf: "webpack_mf@http://localhost:3003/remoteEntry.js",
+      },
       shared: {
         react: {
           singleton: true,
         },
         "react-dom": {
+          singleton: true,
+        },
+        "react-error-boundary": {
           singleton: true,
         },
       },

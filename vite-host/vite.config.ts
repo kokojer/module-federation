@@ -17,9 +17,9 @@ export default defineConfig({
           name: "vite-mf",
           entry: "http://localhost:3001/remoteEntry.js",
         },
-        webpack_mf: {
+        webpack_mf_host: {
           type: "var",
-          name: "webpack_mf",
+          name: "webpack_mf_host",
           entry: "http://localhost:3002/remoteEntry.js",
         },
       },
@@ -28,6 +28,9 @@ export default defineConfig({
           singleton: true,
         },
         "react-dom": {
+          singleton: true,
+        },
+        "react-error-boundary": {
           singleton: true,
         },
       },

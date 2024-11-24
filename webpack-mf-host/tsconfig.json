@@ -5,10 +5,10 @@
     "jsx": "react",
     "lib": ["es2015", "dom"],
     "composite": false,
-    "allowSyntheticDefaultImports": true,
     "paths": {
       "*": ["./@mf-types/*"]
-    }
+    },
+    "allowSyntheticDefaultImports": true
   },
   "include": ["./src/**/*", "./@mf-types/*"],
   "exclude": ["node_modules"]
